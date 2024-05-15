@@ -18,20 +18,23 @@ body {
   justify-content: center;
 }
 .wrapper {
-  width: 1920px;
+  max-width: 1920px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 nav {
-  width: 100%;
+  width: 100vw;
   height: 96px;
   display: flex;
   padding: 0 300px;
-
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
+  border-bottom: 1px solid #333;
 }
 .logo {
   display: flex;
@@ -94,14 +97,15 @@ div::-webkit-scrollbar {
 /*\\\\\\\\\\\\\\ SECTION 1 START \\\\\\\\\\\\\\ */
 
 .section1 {
-  width: 100%;
+  width: 100vw;
   height: calc(100vh - 96px);
   display: flex;
   padding: 0 300px;
   align-items: center;
   justify-content: space-between;
-  /* overflow: hidden; */
   position: relative;
+  position: relative;
+  overflow: hidden;
 }
 
 .leftS1 {
@@ -181,7 +185,7 @@ div::-webkit-scrollbar {
 /*\\\\\\\\\\\\\\ SECTION 2 START \\\\\\\\\\\\\\ */
 
 .section2 {
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -307,7 +311,7 @@ div::-webkit-scrollbar {
 /*\\\\\\\\\\\\\\ SECTION 3 START \\\\\\\\\\\\\\ */
 
 .section3 {
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -385,9 +389,10 @@ div::-webkit-scrollbar {
 
 .section4 {
   display: flex;
+  width: 100vw;
   flex-direction: column;
   align-items: center;
-  padding: 100px 0;
+  padding: 100px 300px;
   background-color: #fff;
   /* height: 700px; */
 }
@@ -412,6 +417,7 @@ div::-webkit-scrollbar {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  justify-content: center;
 }
 .portfolioCard {
   width: 424px;
@@ -423,12 +429,13 @@ div::-webkit-scrollbar {
 }
 .portfolioImg {
   width: 424px;
-  height: 248px;
+  display: flex;
+  justify-content: center;
 }
 .portfolioImg > img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px 8px 0px 0px;
 }
 .portfolioText {
@@ -466,7 +473,7 @@ div::-webkit-scrollbar {
 }
 
 .section5 {
-  width: 100%;
+  width: 100vw;
   height: 472px;
   background: #333;
   display: flex;
@@ -505,7 +512,7 @@ div::-webkit-scrollbar {
   font-weight: 600;
 }
 .section7 {
-  width: 100%;
+  width: 100vw;
   height: 876px;
   background: rgb(240, 241, 243);
   display: flex;
@@ -587,7 +594,7 @@ div::-webkit-scrollbar {
 }
 
 .section8 {
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   padding: 0 300px;
@@ -693,7 +700,7 @@ form > button {
   margin-top: 50px;
 }
 footer {
-  width: 100%;
+  width: 100vw;
   height: 270px;
   padding: 0 300px;
   display: flex;
@@ -739,4 +746,723 @@ footer {
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
+}
+.modal-toogle {
+  width: 50px !important;
+  height: 50px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 20px;
+  background-color: transparent;
+  display: none;
+}
+.modal {
+  width: 200px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  padding-top: 12px;
+  gap: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  backdrop-filter: blur(10px);
+  background-color: #fff;
+
+  transition: 0.5s;
+}
+.modal > p {
+  color: rgb(51, 51, 51);
+  font-family: Work Sans;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.telegram {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 10vh;
+  right: 10vw;
+  border-radius: 50%;
+  background-color: #0088cc;
+  display: none;
+  color: #fff;
+  font-size: 40px;
+  z-index: 5;
+}
+@media (max-width: 1780px) {
+  .leftS3 {
+    display: flex;
+    flex-direction: column;
+    width: 429px;
+  }
+
+  .leftS3 > span {
+    width: 80%;
+  }
+  .leftS3 > b {
+    width: 50%;
+  }
+  .cardS3 {
+    width: 300px;
+    height: 264px;
+    border-radius: 12px;
+    box-shadow: 32px 32px 124px 0px rgba(43, 56, 76, 0.1);
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    justify-content: space-between;
+  }
+
+  .leftS1 > b {
+    color: rgb(19, 34, 56);
+    font-family: Work Sans;
+    font-size: 62px;
+    font-weight: 600;
+  }
+  .leftS1 > span {
+    font-family: Work Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  .leftS1 {
+    width: 548px;
+    gap: 24px;
+  }
+  .stats {
+    width: 548px;
+  }
+  form > input {
+    width: 460px;
+    height: 38px;
+    border-bottom: 1px solid #4a4a4a;
+    transition: 0.5s;
+  }
+  .rightS7 {
+    width: 448px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .rightS7 > div {
+    width: 100%;
+    height: 220px;
+    padding: 32px;
+  }
+  .rightS7 > div > span {
+    font-size: 16px;
+    width: 384px;
+  }
+  nav {
+    padding: 0 150px;
+  }
+  .section1 {
+    padding: 0 150px;
+    height: 100vh;
+  }
+
+  .section3 {
+    padding: 0 150px;
+  }
+  .section7 {
+    padding: 0 150px;
+  }
+  .section8 {
+    padding: 0 150px;
+  }
+  .section4 {
+    padding: 50px 150px;
+  }
+
+  .cardS2 {
+    padding: 0 100px;
+    height: 80vh;
+  }
+
+  .cardS8 {
+    padding: 44px;
+  }
+  footer {
+    padding: 0 150px;
+  }
+  .cardS8 {
+    height: 520px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .leftS1 > b {
+    font-size: 52px;
+  }
+
+  .stats {
+    width: 500px;
+    margin-top: 59px;
+  }
+  .rightS1 {
+    width: 400px;
+    height: 400px;
+  }
+  .cardS2 {
+    width: 1220px;
+    padding: 0px 50px;
+  }
+}
+
+@media (max-width: 1355px) {
+  .section3 {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 140vh;
+    align-items: center;
+    padding: 0 150px;
+    background-color: gray;
+    text-align: center;
+  }
+  .leftS3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer_links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .leftS7 {
+    width: 429px;
+    display: flex;
+    flex-direction: column;
+  }
+  .cardS2 {
+    width: 1120px;
+    padding: 0px 50px;
+  }
+}
+
+@media (max-width: 1260px) {
+  .leftS1 > b {
+    font-size: 42px;
+  }
+  .leftS1 {
+    width: 448px;
+    gap: 24px;
+  }
+  .stats {
+    width: 448px;
+    margin-top: 49px;
+  }
+  .stats > b {
+    gap: 4px;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .stats > b > p {
+    font-size: 14px;
+  }
+  .cardS8 {
+    width: 100%;
+    height: 520px;
+    align-items: start;
+    padding: 78px;
+  }
+  .leftS8 {
+    font-size: 30px;
+    gap: 25px;
+  }
+  .contactContainer {
+    gap: 12px;
+  }
+  .contactContainer > div {
+    width: 296px;
+    height: 96px;
+    padding: 24px;
+    gap: 13px;
+  }
+  form > input {
+    width: 360px;
+  }
+  form > b {
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+  .rightCardS8 > a {
+    font-size: 14px;
+  }
+  .leftS3 > span {
+    width: 600px;
+  }
+  footer {
+    width: 100vw;
+    height: 270px;
+    padding: 0 150px;
+    display: flex;
+    align-items: start;
+    padding-top: 50px;
+    justify-content: space-between;
+  }
+  .footer_links {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer_links > p {
+    font-size: 16px;
+    font-weight: 300;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1170px) {
+  .logo > div > b {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .logo > div {
+    width: 36px;
+    height: 36px;
+    background: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .section7 {
+    flex-direction: column;
+    height: 160vh;
+  }
+  .cardS2 {
+    width: 1020px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 150vh;
+    padding: 100px 0;
+  }
+  .section2 {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+  }
+  .leftS2card {
+    display: flex;
+    position: relative;
+    width: 324px;
+    height: 368px;
+  }
+  .cardImg {
+    display: flex;
+    position: relative;
+    width: 324px;
+    height: 368px;
+    background-color: red;
+  }
+  .social_links {
+    position: absolute;
+    bottom: -36px;
+    left: 30px;
+    width: 264px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .section1 {
+    width: 100vw;
+    display: flex;
+    padding: 50px 150px;
+    height: 140vh;
+    gap: 10vh;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column-reverse;
+  }
+  .cardS8 {
+    padding: 44px;
+    flex-direction: column;
+    height: 120vh;
+    align-items: center;
+  }
+  .section8 {
+    width: 100vw;
+    align-items: center;
+    height: 150vh;
+  }
+}
+@media (max-width: 1060px) {
+  nav {
+    padding: 0 100px;
+  }
+  .section1 {
+    padding: 0 100px;
+    height: 140vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section3 {
+    padding: 0 100px;
+  }
+  .section7 {
+    padding: 0 100px;
+  }
+  .section8 {
+    padding: 0 100px;
+  }
+  .section4 {
+    padding: 50px 100px;
+  }
+  .cardS2 {
+    width: 1020px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 150vh;
+    padding: 120px 0;
+  }
+}
+@media (max-width: 960px) {
+  .logo > div > b {
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .logo > div {
+    width: 26px;
+    height: 26px;
+    background: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  nav {
+    padding: 0 50px;
+  }
+  footer {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-bottom: 50px;
+  }
+}
+@media (max-width: 768px) {
+  .modal-toogle {
+    display: flex;
+  }
+  .links {
+    display: none;
+  }
+}
+@media (max-width: 650px) {
+  .rightS3 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .s3Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .s3Container:first-child {
+    margin-bottom: 0px;
+  }
+  .section3 {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    background: rgb(240, 241, 243);
+    background-color: gray;
+    padding: 0 50px;
+    gap: 24px;
+  }
+  .cardS2 {
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 150vh;
+    padding: 120px 10px;
+  }
+  .rightS2card {
+    display: flex;
+    flex-direction: column;
+    width: 536px;
+    align-items: center;
+  }
+  .rightS2card > b {
+    color: rgb(19, 34, 56);
+    font-family: Work Sans;
+    font-size: 28px;
+    font-weight: 500;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .rightS2card > span {
+    color: rgb(85, 96, 112);
+    font-family: Work Sans;
+    font-size: 15px;
+    width: 80vw;
+    font-weight: 300;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .s2Buttons {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .section5 > b {
+    color: rgb(255, 255, 255);
+    font-family: Work Sans;
+    font-size: 38px;
+    font-weight: 600;
+    text-align: center;
+    width: 80%;
+  }
+  .section5 > span {
+    width: 50%;
+    color: rgb(165, 172, 181);
+    font-family: Work Sans;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 150%;
+  }
+  .leftS3 > span {
+    width: 80vw;
+  }
+  .cardS3 {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 32px 32px 124px 0px rgba(43, 56, 76, 0.1);
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    justify-content: center;
+    gap: 24px;
+    align-items: center;
+  }
+  .section4 > span {
+    color: rgb(135, 144, 157);
+    font-family: Work Sans;
+    font-size: 18px;
+    font-weight: 400;
+    width: 90vw;
+    text-align: center;
+    margin-bottom: 70px;
+  }
+  form > input {
+    width: 100%;
+  }
+  .section8 {
+    padding: 0 30px;
+  }
+  .s3Container,
+  .rightS3 {
+    height: auto;
+  }
+}
+@media (max-width: 550px) {
+  .leftS7 > span {
+    color: rgb(135, 144, 157);
+    font-family: Work Sans;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    width: 80vw;
+  }
+  .leftS7 {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+  }
+
+  .portfolioContainer {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  .portfolioCard {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: red;
+  }
+  .portfolioImg {
+    width: 50%;
+    background-color: blue;
+  }
+  .portfolioImg > img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .portfolioText {
+    padding: 8px;
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+  .contactContainer > div {
+    width: 80vw;
+    padding: 12px;
+  }
+  .rightS7 {
+    width: 100vw;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    gap: 24px;
+    background-color: red;
+    align-items: center;
+  }
+  .rightS7 > div {
+    width: 90%;
+    height: auto;
+    padding: 32px;
+  }
+  .rightS7 > div > span {
+    font-size: 16px;
+    width: 90%;
+  }
+  .section7 {
+    height: auto;
+  }
+  nav {
+    background-color: red;
+  }
+  .section3 {
+    padding: 24px 0;
+  }
+  .section5 {
+    height: auto;
+    padding: 24px 0;
+  }
+  .section1 {
+    height: auto;
+    padding: 24px 0;
+  }
+  .stats {
+    width: 90vw;
+    margin-top: 49px;
+  }
+  .leftS1 {
+    width: 90vw;
+    gap: 24px;
+  }
+  .rightS1 {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 500px) {
+  .stats {
+    min-width: 150px;
+    width: 150px;
+    margin-top: 49px;
+    height: 40vh;
+    gap: 24px;
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .telegram {
+    display: flex;
+
+  }
+  .leftS2card {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 468px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+  .cardImg {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+  }
+  .social_links {
+    display: none;
+    position: absolute;
+    bottom: -36px;
+    left: 90px;
+    width: 264px;
+    height: 72px;
+    align-items: center;
+    justify-content: center;
+  }
+  .rightS1 > span {
+    width: 100%;
+    text-align: center;
+  }
+  .portfolioCard {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+}
+@media (max-width: 360px) {
+  .rightCardS8 > a {
+    color: rgb(19, 34, 56);
+    font-family: Work Sans;
+    font-weight: 500;
+    font-size: 12px;
+
+  }
 }

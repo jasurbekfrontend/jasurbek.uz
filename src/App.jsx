@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import profile_img from "./assets/img/20240428_123525-removebg-preview.png";
 import laptop from "./assets/svg/laptop.svg";
 import calendar from "./assets/svg/calendar.svg";
 import trade from "./assets/svg/trade.svg";
@@ -15,11 +14,16 @@ import { FiGithub } from "react-icons/fi";
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { FaBars } from "react-icons/fa6";
 
-import issiqbuloq from "./assets/img/issiqbuloq.png";
-import frossh from "./assets/img/frossh.png";
-import sanone from "./assets/img/sanone.png";
+import issiqbuloq from "./assets/img/issiq-buloq.png";
+import nexccent from "./assets/img/nexcent.png";
+import uzchatter from "./assets/img/uz-chatter.png";
+import crm from "./assets/img/crm-img.png";
+import applogo from "./assets/img/app-logo.png";
+import shopping from "./assets/img/shoppinga-app.png";
+import axios from "axios";
 function App() {
   const cardS3data = [
     {
@@ -55,19 +59,19 @@ function App() {
   const portfolioData = [
     {
       id: 1,
-      img: sanone,
-      url: "http://sanone.uz/",
+      img: uzchatter,
+      url: "https://uzchatter.netlify.app/",
       tech: "React JS",
-      title: "Online shopping website",
+      title: "Online chatting system",
       subtitle:
         "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
     },
     {
       id: 2,
-      img: frossh,
+      img: nexccent,
       tech: "React JS",
-      url: "http://frossh.uz/",
-      title: "Online marketplace",
+      url: "https://nexcent-site.vercel.app/",
+      title: "Landing page",
       subtitle:
         "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
     },
@@ -80,7 +84,41 @@ function App() {
       subtitle:
         "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
     },
+    {
+      id: 4,
+      img: shopping,
+      tech: "React JS",
+      url: "https://fruit-shopping-app.vercel.app/",
+      title: "Shopping website",
+      subtitle:
+        "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+    },
+    {
+      id: 4,
+      img: applogo,
+      tech: "HTML(file source)",
+      url: "https://fruit-shopping-app.vercel.app/",
+      title: "Download my application",
+      subtitle:
+        "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+    },
+    {
+      id: 4,
+      img: crm,
+      tech: "React JS, Mockapi.io",
+      url: "https://napitka-crm.vercel.app/",
+      title: "CRM web site",
+      subtitle:
+        "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+    },
   ];
+  const [modalToggle, setModalToggle] = useState(false);
+
+  const [formdata, setFormdata] = useState({
+    firstName: "",
+    phoneNumber: "",
+    message: "",
+  });
 
   const sec1 = useRef(null);
   const sec2 = useRef(null);
@@ -93,8 +131,39 @@ function App() {
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormdata({
+      ...formdata,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const token = "7144513024:AAHhU48rb_emyURzr7DrHHNEJwldEC5Z8e0";
+      const chatId = "@jasurbek_zakaz";
+
+      await axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
+        chat_id: chatId,
+        text: `Name: ${formdata.firstName}\nPhone: ${formdata.phoneNumber}\nMessage: ${formdata.message}`,
+      });
+
+      setFormdata({
+        firstName: "",
+        message: "",
+        phoneNumber: "",
+      });
+    } catch (error) {
+      console.error("Xato ketdi", error);
+    }
+  };
   return (
     <div className="wrapper">
+      <a className="telegram" href="https://t.me/jasurbek_react">
+        <FaTelegramPlane />
+      </a>
       <nav>
         <div className="logo">
           <div>
@@ -110,8 +179,29 @@ function App() {
           <p onClick={() => scrollToSection(sec5)}>Services</p>
           <button onClick={() => scrollToSection(sec7)}>Contact</button>
         </div>
+        <button
+          className="modal-toogle"
+          onClick={() => setModalToggle(!modalToggle)}
+        >
+          <FaBars />
+        </button>
       </nav>
       <div className="section1" ref={sec1}>
+        <div
+          className="modal"
+          style={
+            modalToggle === true
+              ? { transform: "translateX(0)" }
+              : { transform: "translateX(300px)" }
+          }
+        >
+          <p onClick={() => scrollToSection(sec1)}>Home</p>
+          <p onClick={() => scrollToSection(sec2)}>About</p>
+          <p onClick={() => scrollToSection(sec3)}>Process</p>
+          <p onClick={() => scrollToSection(sec4)}>Portfolio</p>
+          <p onClick={() => scrollToSection(sec5)}>Services</p>
+          <p onClick={() => scrollToSection(sec7)}>Contact</p>
+        </div>
         <div className="leftS1">
           <b>Hello, I’m Jasurbek</b>
           <span>
@@ -137,22 +227,22 @@ function App() {
           </div>
         </div>
         <div className="rightS1">
-          <img src={profile_img} alt="" />
+          <img src={""} alt="" />
         </div>
       </div>
       <div className="section2" ref={sec2}>
         <div className="cardS2">
           <div className="leftS2card">
             <div className="cardImg">
-              <img src={profile_img} alt="" />
+              <img src={""} alt="" />
               <div className="social_links">
-                <a href="#">
-                  <FaFacebookF />
+                <a href="https://www.youtube.com/channel/UC-tLM8xv9shDjzZOE4Ik7gA">
+                  <FaYoutube />
                 </a>
                 <a href="https://t.me/jasurbek_react">
                   <FaTelegramPlane />
                 </a>
-                <a href="https://www.instagram.com/jasur._.m/">
+                <a href="https://www.instagram.com/jasurbek_frontend">
                   <FaInstagram />
                 </a>
                 <a href="https://www.linkedin.com/in/jasurbek-mo-minjonov-1ba429300/">
@@ -334,8 +424,8 @@ function App() {
                 </div>
                 <div className="rightCardS8">
                   <p>My email</p>
-                  <a href="mailto:jasurmominjonov2818@gmail.com?subject=Hello!">
-                    jasurfrontend@gmail.com
+                  <a href="mailto:jasurbekfrontend@gmail.com?subject=Hello!">
+                    jasurbekfrontend@gmail.com
                   </a>
                 </div>
               </div>
@@ -352,12 +442,30 @@ function App() {
           </div>
 
           <div className="rightS8">
-            <form>
+            <form onSubmit={handleSubmit}>
               <b>Let’s discuss your Project</b>
-              <input type="text" placeholder="Your name" />
-              <input type="text" placeholder="Phone number" />
-              <input type="text" placeholder="About your project" />
-              <button>
+              <input
+                type="text"
+                placeholder="Your name"
+                value={formdata.firstName}
+                name="firstName"
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                placeholder="Phone number"
+                value={formdata.phoneNumber}
+                onChange={handleChange}
+                name="phoneNumber"
+              />
+              <input
+                type="text"
+                placeholder="About your project"
+                value={formdata.message}
+                onChange={handleChange}
+                name="message"
+              />
+              <button type="submit">
                 Submit <img src={send} alt="" />
               </button>
             </form>
@@ -372,7 +480,7 @@ function App() {
           <p>Jasurbek</p>
         </div>
         <div className="footer_links">
-        <p onClick={() => scrollToSection(sec1)}>Home</p>
+          <p onClick={() => scrollToSection(sec1)}>Home</p>
           <p onClick={() => scrollToSection(sec2)}>About</p>
           <p onClick={() => scrollToSection(sec3)}>Process</p>
           <p onClick={() => scrollToSection(sec4)}>Portfolio</p>
